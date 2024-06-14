@@ -21,7 +21,7 @@ export const Library: CollectionConfig = {
   access: {
     read: () => true,
     create: isAdmin,
-    update: () => true,
+    update: isAdmin,
     delete: isAdmin,
   },
   fields: [
