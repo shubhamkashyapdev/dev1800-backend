@@ -1,4 +1,4 @@
-import { CollectionConfig } from "payload/types"
+import { CollectionConfig } from "payload/types";
 import {
   BlockQuote,
   CodeBlock,
@@ -8,9 +8,15 @@ import {
   ParragraphBlock,
   PrimaryHeadingBlock,
   SecondaryHeadingBlock,
-} from "../blocks"
-import { TitleField, SlugField, ReadTimeField, ViewsField } from "../fields"
-import { formattedSlug } from "../utils/utils"
+} from "../blocks";
+import {
+  TitleField,
+  SlugField,
+  ReadTimeField,
+  ViewsField,
+  TagsField,
+} from "../fields";
+import { formattedSlug } from "../utils/utils";
 
 const Posts: CollectionConfig = {
   slug: "posts",
@@ -26,6 +32,7 @@ const Posts: CollectionConfig = {
     SlugField,
     ReadTimeField,
     ViewsField,
+    TagsField,
     {
       name: "publishedDate",
       type: "date",
@@ -48,12 +55,6 @@ const Posts: CollectionConfig = {
       name: "category",
       type: "relationship",
       relationTo: "category",
-    },
-    {
-      name: "tags",
-      type: "relationship",
-      relationTo: "tags",
-      hasMany: true,
     },
     {
       name: "excerpt",
@@ -97,12 +98,12 @@ const Posts: CollectionConfig = {
   hooks: {
     beforeChange: [
       async ({ data }) => {
-        const title = data.title
-        data.slug = formattedSlug(title)
-        return data
+        const title = data.title;
+        data.slug = formattedSlug(title);
+        return data;
       },
     ],
   },
-}
+};
 
-export default Posts
+export default Posts;

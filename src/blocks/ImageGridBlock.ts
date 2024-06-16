@@ -1,4 +1,4 @@
-import { Block } from "payload/types"
+import { Block } from "payload/types";
 
 const ImageGridBlock: Block = {
   slug: "imageGridBlock",
@@ -25,5 +25,5 @@ const ImageGridBlock: Block = {
       ],
     },
   ],
-}
-export default ImageGridBlock
+};
+export default ImageGridBlock;

@@ -1,4 +1,4 @@
-import { CollectionConfig } from "payload/types"
+import { CollectionConfig } from "payload/types";
 import {
   PrimaryHeadingBlock,
   BlockQuote,
@@ -8,15 +8,16 @@ import {
   ImageGridBlock,
   ParragraphBlock,
   SecondaryHeadingBlock,
-} from "../blocks"
+} from "../blocks";
 import {
   SlugField,
   SubTaglineField,
   TaglineField,
+  TagsField,
   TitleField,
   ViewsField,
-} from "../fields"
-import { formattedSlug } from "../utils/utils"
+} from "../fields";
+import { formattedSlug } from "../utils/utils";
 
 const Projects: CollectionConfig = {
   slug: "projects",
@@ -32,18 +33,19 @@ const Projects: CollectionConfig = {
     ViewsField,
     TaglineField,
     SubTaglineField,
+    TagsField,
     {
       name: "projectType",
       type: "radio",
       options: [
         {
-          label: 'Public',
-          value: 'public',
+          label: "Public",
+          value: "public",
         },
         {
           label: "Private",
-          value: 'private',
-        }
+          value: "private",
+        },
       ],
       required: true,
     },
@@ -54,7 +56,7 @@ const Projects: CollectionConfig = {
       required: true,
       admin: {
         position: "sidebar",
-        condition: (data) => data.projectType === 'public' ? true : false
+        condition: (data) => (data.projectType === "public" ? true : false),
       },
     },
     {
@@ -62,7 +64,7 @@ const Projects: CollectionConfig = {
       type: "text",
       admin: {
         position: "sidebar",
-        condition: (data) => data.projectType === 'public' ? true : false
+        condition: (data) => (data.projectType === "public" ? true : false),
       },
     },
     {
@@ -70,15 +72,6 @@ const Projects: CollectionConfig = {
       label: "Featured Image",
       type: "upload",
       relationTo: "media",
-    },
-    {
-      name: "tags",
-      type: "relationship",
-      relationTo: "tags",
-      hasMany: true,
-      admin: {
-        position: "sidebar",
-      },
     },
     {
       name: "blocks",
@@ -99,12 +92,12 @@ const Projects: CollectionConfig = {
   hooks: {
     beforeChange: [
       async ({ data }) => {
-        const title = data.title
-        data.slug = formattedSlug(title)
-        return data
+        const title = data.title;
+        data.slug = formattedSlug(title);
+        return data;
       },
     ],
   },
-}
+};
 
-export default Projects
+export default Projects;

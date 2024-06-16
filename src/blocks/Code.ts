@@ -1,4 +1,4 @@
-import { Block } from "payload/types"
+import { Block } from "payload/types";
 
 const CodeBlock: Block = {
   slug: "code",
@@ -29,6 +29,6 @@ const CodeBlock: Block = {
       defaultValue: false,
     },
   ],
-}
+};
 
-export default CodeBlock
+export default CodeBlock;

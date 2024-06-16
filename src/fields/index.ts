@@ -1,11 +1,11 @@
-import { Field } from "payload/types"
+import { Field } from "payload/types";
 
 export const TitleField: Field = {
   name: "title",
   label: "Title",
   type: "text",
   required: true,
-}
+};
 export const SlugField: Field = {
   name: "slug",
   label: "Slug",
@@ -13,7 +13,7 @@ export const SlugField: Field = {
   admin: {
     position: "sidebar",
   },
-}
+};
 
 export const ReadTimeField: Field = {
   name: "readTime",
@@ -23,7 +23,7 @@ export const ReadTimeField: Field = {
   admin: {
     position: "sidebar",
   },
-}
+};
 
 export const ViewsField: Field = {
   name: "views",
@@ -35,10 +35,10 @@ export const ViewsField: Field = {
     readOnly: true,
     position: "sidebar",
   },
-}
+};
 
 export const TagsField: Field = {
-  name: "tags",
+  name: "allTags",
   label: "Snippet Tags",
   type: "relationship",
   relationTo: "tags",
@@ -46,7 +46,7 @@ export const TagsField: Field = {
   admin: {
     position: "sidebar",
   },
-}
+};
 
 export const TaglineField: Field = {
   name: "tagline",
@@ -55,7 +55,7 @@ export const TaglineField: Field = {
   admin: {
     position: "sidebar",
   },
-}
+};
 
 export const SubTaglineField: Field = {
   name: "subTagline",
@@ -64,4 +64,4 @@ export const SubTaglineField: Field = {
   admin: {
     position: "sidebar",
   },
-}
+};

@@ -1,7 +1,7 @@
-import { CollectionConfig } from "payload/types"
-import { isAdmin } from "../access/isAdmin"
-import { SlugField, TitleField } from "../fields"
-import { formattedSlug } from "../utils/utils"
+import { CollectionConfig } from "payload/types";
+import { isAdmin } from "../access/isAdmin";
+import { SlugField, TitleField } from "../fields";
+import { formattedSlug } from "../utils/utils";
 
 const Tags: CollectionConfig = {
   slug: "tags",
@@ -27,12 +27,12 @@ const Tags: CollectionConfig = {
   hooks: {
     beforeChange: [
       async ({ data }) => {
-        const title = data.title
-        data.slug = formattedSlug(title)
-        return data
+        const title = data.title;
+        data.slug = formattedSlug(title);
+        return data;
       },
     ],
   },
-}
+};
 
-export default Tags
+export default Tags;

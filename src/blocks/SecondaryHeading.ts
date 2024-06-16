@@ -1,4 +1,4 @@
-import { Block } from "payload/types"
+import { Block } from "payload/types";
 
 const SecondaryHeadingBlock: Block = {
   slug: "secondary-heading",
@@ -13,5 +13,5 @@ const SecondaryHeadingBlock: Block = {
       required: true,
     },
   ],
-}
-export default SecondaryHeadingBlock
+};
+export default SecondaryHeadingBlock;

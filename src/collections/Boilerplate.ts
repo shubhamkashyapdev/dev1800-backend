@@ -1,14 +1,14 @@
-import { CollectionConfig } from 'payload/types'
-import { SlugField, TagsField, TitleField, ViewsField } from '../fields'
-import { formattedSlug } from '../utils/utils'
+import { CollectionConfig } from "payload/types";
+import { SlugField, TagsField, TitleField, ViewsField } from "../fields";
+import { formattedSlug } from "../utils/utils";
 
 const Boilerplate: CollectionConfig = {
-  slug: 'boilerplate',
+  slug: "boilerplate",
   access: {
     read: () => true,
   },
   admin: {
-    useAsTitle: 'title',
+    useAsTitle: "title",
   },
   fields: [
     TitleField,
@@ -16,40 +16,40 @@ const Boilerplate: CollectionConfig = {
     ViewsField,
     TagsField,
     {
-      name: 'tagline',
-      label: 'Boilerplate Tagline',
-      type: 'text',
+      name: "tagline",
+      label: "Boilerplate Tagline",
+      type: "text",
       required: true,
     },
     {
-      name: 'githubURL',
-      label: 'Github URL',
-      type: 'text',
+      name: "githubURL",
+      label: "Github URL",
+      type: "text",
       required: true,
     },
     {
-      name: 'description',
-      label: 'Description',
-      type: 'textarea',
+      name: "description",
+      label: "Description",
+      type: "textarea",
       required: true,
     },
     {
-      name: 'image',
-      label: 'Fatured Image',
-      type: 'upload',
-      relationTo: 'media',
+      name: "image",
+      label: "Fatured Image",
+      type: "upload",
+      relationTo: "media",
       required: true,
     },
   ],
   hooks: {
     beforeChange: [
       async ({ data }) => {
-        const title = data.title
-        data.slug = formattedSlug(title)
-        return data
+        const title = data.title;
+        data.slug = formattedSlug(title);
+        return data;
       },
     ],
   },
-}
+};
 
-export default Boilerplate
+export default Boilerplate;

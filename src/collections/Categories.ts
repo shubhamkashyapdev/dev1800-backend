@@ -1,4 +1,4 @@
-import { CollectionConfig } from "payload/types"
+import { CollectionConfig } from "payload/types";
 
 const Categories: CollectionConfig = {
   slug: "category",
@@ -15,6 +15,6 @@ const Categories: CollectionConfig = {
     },
   ],
   timestamps: false,
-}
+};
 
-export default Categories
+export default Categories;

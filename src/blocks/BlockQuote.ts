@@ -1,5 +1,5 @@
-import { Block } from "payload/types"
-import { TitleField } from "../fields"
+import { Block } from "payload/types";
+import { TitleField } from "../fields";
 
 const BlockQuote: Block = {
   slug: "blockquote",
@@ -21,6 +21,6 @@ const BlockQuote: Block = {
       ],
     },
   ],
-}
+};
 
-export default BlockQuote
+export default BlockQuote;

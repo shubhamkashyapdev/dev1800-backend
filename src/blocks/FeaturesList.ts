@@ -1,4 +1,4 @@
-import { Block } from "payload/types"
+import { Block } from "payload/types";
 
 const FeaturesList: Block = {
   slug: "featureslist",
@@ -19,5 +19,5 @@ const FeaturesList: Block = {
       ],
     },
   ],
-}
-export default FeaturesList
+};
+export default FeaturesList;

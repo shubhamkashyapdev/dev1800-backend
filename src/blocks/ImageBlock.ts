@@ -1,4 +1,4 @@
-import { Block } from "payload/types"
+import { Block } from "payload/types";
 
 const ImageBlock: Block = {
   slug: "imageblock",
@@ -14,5 +14,5 @@ const ImageBlock: Block = {
       required: true,
     },
   ],
-}
-export default ImageBlock
+};
+export default ImageBlock;
