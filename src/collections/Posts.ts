@@ -52,7 +52,7 @@ const Posts: CollectionConfig = {
       relationTo: "media",
     },
     {
-      name: "category",
+      name: "postCategory",
       type: "relationship",
       relationTo: "category",
     },
