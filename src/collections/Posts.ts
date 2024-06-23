@@ -103,6 +103,32 @@ const Posts: CollectionConfig = {
         return data;
       },
     ],
+    beforeOperation: [
+      async ({ operation, args, req }) => {
+        const slug = args?.req?.body?.variables?.slug;
+        if (operation === "read" && slug) {
+          // update the view count
+          const posts = await req.payload.find({
+            collection: "posts",
+            where: {
+              slug: {
+                equals: slug,
+              },
+            },
+          });
+          const post = posts.docs[0];
+          if (post) {
+            await req.payload.update({
+              collection: "posts",
+              id: post.id,
+              data: {
+                views: (Number(post.views) || 0) + 1,
+              },
+            });
+          }
+        }
+      },
+    ],
   },
 };
 

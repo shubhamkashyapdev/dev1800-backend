@@ -65,42 +65,31 @@ export const Library: CollectionConfig = {
         return data;
       },
     ],
-  },
-  endpoints: [
-    {
-      method: "patch",
-      path: "/views/:snippetId",
-      handler: async (req) => {
-        const snippetId = req.query.snippetId as string;
-        const payload = req.payload;
-        try {
-          const item = await payload.findByID({
+    beforeOperation: [
+      async ({ operation, args, req }) => {
+        const slug = args?.req?.body?.variables?.slug;
+        if (operation === "read" && slug) {
+          // update the view count
+          const snippets = await req.payload.find({
             collection: "library",
-            id: snippetId,
+            where: {
+              slug: {
+                equals: slug,
+              },
+            },
           });
-          if (item) {
-            const updatedItem = await payload.update({
+          const snippet = snippets.docs[0];
+          if (snippet) {
+            await req.payload.update({
               collection: "library",
-              id: snippetId,
+              id: snippet.id,
               data: {
-                views: 10,
+                views: (Number(snippet.views) || 0) + 1,
               },
             });
-            const data = {
-              success: true,
-              data: updatedItem,
-            };
-            return new Response(JSON.stringify(data));
           }
-        } catch (err: any) {
-          const message = {
-            success: false,
-            message: err.message,
-          };
-          return new Response(JSON.stringify(message));
         }
-        return new Response("Something wen't wrong");
       },
-    },
-  ],
+    ],
+  },
 };
